@@ -22,11 +22,14 @@ otus_graduation_project
 8. Установить git
    yum install git
 
-9. Создать директорию с конфигами
-   mkdir -p -m 777 /tmp/server_config
+9. Перейти во временную директорию
+   cd /tmp
    
-10. Склонировать Git репозиторий
+10. Склонировать Git репозиторий с конфигами сервера
    git clone git@github.com:tsarroma/server.git
+
+11. Поменять права и сделать исполняемыми скрипты
+    chmod -r /tmp/server
 
    
      
