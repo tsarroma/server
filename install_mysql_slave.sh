@@ -35,6 +35,8 @@ echo "SELECT User, Host FROM mysql.user\G; SHOW MASTER STATUS\G; SHOW GLOBAL VAR
 
 echo "STOP SLAVE; CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='repl', MASTER_PASSWORD='$MASTER_PASSWORD', MASTER_LOG_FILE='binlog.000003', MASTER_LOG_POS=157, GET_MASTER_PUBLIC_KEY = 1; START SLAVE; show slave status\G" |  mysql -uroot -p$PASSWORD
 
+echo "UPDATE mysql.user SET Super_Priv='Y' WHERE user='repl' AND host='%'; FLUSH PRIVILEGES;" |  mysql -uroot -p$PASSWORD
+
 echo "innodb_read_only = 1" >> /etc/my.cnf
 
 systemctl restart mysqld
