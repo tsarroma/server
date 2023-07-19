@@ -33,7 +33,7 @@ systemctl restart mysqld
 
 echo "SELECT User, Host FROM mysql.user\G; SHOW MASTER STATUS\G; SHOW GLOBAL VARIABLES LIKE 'caching_sha2_password_public_key_path'; SHOW STATUS LIKE 'Caching_sha2_password_rsa_public_key'\G" |  mysql -uroot -p$PASSWORD
 
-echo "STOP SLAVE; CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='repl', MASTER_PASSWORD='$MASTER_PASSWORD', MASTER_LOG_FILE='binlog.000005', MASTER_LOG_POS=688, GET_MASTER_PUBLIC_KEY = 1; START SLAVE; show slave status\G" |  mysql -uroot -p$PASSWORD
+echo "STOP SLAVE; CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='repl', MASTER_PASSWORD='$MASTER_PASSWORD', MASTER_LOG_FILE='binlog.000003', MASTER_LOG_POS=157, GET_MASTER_PUBLIC_KEY = 1; START SLAVE; show slave status\G" |  mysql -uroot -p$PASSWORD
 
 echo "innodb_read_only = 1" >> /etc/my.cnf
 
