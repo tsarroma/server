@@ -32,7 +32,7 @@ fi
 #Get list of databases
 BASES=$(mysql -D mysql --skip-column-names -B $MYSQL -e 'SHOW DATABASES;' 2> /dev/null | $DB)
 
-echo "stop slave;" | $MYSQL
+echo "stop slave;" | mysql $MYSQL
 
 #Main cycle of script, 
 for BASE in $BASES; do
@@ -53,4 +53,4 @@ for BASE in $BASES; do
 	done
 done
 
-echo "start slave;" | $MYSQL
+echo "start slave;" | mysql $MYSQL
