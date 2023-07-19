@@ -36,7 +36,22 @@ otus_graduation_project
 
 13. Запуск скрипта установки mysql
 14. Запуск скрипта установки системы мониторинга
-15. Запуск скрипта разворачивания системы логирования    
+15. Запуск скрипта разворачивания системы логирования
+
+установка wordpress
+wget http://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
+sudo rsync -avP ~/wordpress/ /var/www/html/
+mkdir /var/www/html/wp-content/uploads
+sudo chown -R apache:apache /var/www/html/*
+cd /var/www/html
+cp wp-config-sample.php wp-config.php
+
+mysql -u root -pqwe123QWE!
+
+
+Скачивание rpm с ftp
+wget ftp://10.77.197.3/*.rpm
 
    
      
