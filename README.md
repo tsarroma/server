@@ -50,24 +50,20 @@ otus_graduation_project
 13. Запуск скрипта установки mysql
     /tmp/server/install_mysql.sh
 
+14. Установка httpd, nginx с копированием конфигов    
+   /tmp/server/install_packet.sh
 
-15. Запуск скрипта установки системы мониторинга
-16. Запуск скрипта разворачивания системы логирования
+16. Установка вордпрес и конфигурирование
+    wget http://wordpress.org/latest.tar.gz
+   tar xzvf latest.tar.gz
+   sudo rsync -avP ~/wordpress/ /var/www/html/
+   mkdir /var/www/html/wp-content/uploads
+   sudo chown -R apache:apache /var/www/html/*
+   cd /var/www/html
+   cp wp-config-sample.php wp-config.php
 
-установка wordpress
-wget http://wordpress.org/latest.tar.gz
-tar xzvf latest.tar.gz
-sudo rsync -avP ~/wordpress/ /var/www/html/
-mkdir /var/www/html/wp-content/uploads
-sudo chown -R apache:apache /var/www/html/*
-cd /var/www/html
-cp wp-config-sample.php wp-config.php
-
-mysql -u root -pqwe123QWE!
-
+18. Запуск скрипта установки системы мониторинга
 
 Скачивание rpm с ftp
 wget ftp://10.77.197.3/*.rpm
 
-   
-     
