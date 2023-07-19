@@ -20,7 +20,7 @@ pass=$(grep "A temporary password" /var/log/mysqld.log | awk '{print $NF}')
 echo $pass
 
 echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '$PASSWORD'; FLUSH PRIVILEGES;" | mysql --connect-expired-password -uroot -p$pass
-echo "SELECT @@server_id; CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020'; GRANT REPLICATION SLAVE ON *.* TO repl@'%'; FLUSH PRIVILEGES; SELECT User, Host FROM mysql.user; FLUSH TABLES WITH READ LOCK; SHOW MASTER STATUS;" |  mysql -uroot -p$PASSWO$
+echo "SELECT @@server_id; CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020'; GRANT REPLICATION SLAVE ON *.* TO repl@'%'; FLUSH PRIVILEGES; SELECT User, Host FROM mysql.user; FLUSH TABLES WITH READ LOCK; SHOW MASTER STATUS;" |  mysql -uroot -p$PASSWORD
 
 #Reboot
 read -p "Reboot now (y/n)"
