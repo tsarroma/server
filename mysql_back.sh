@@ -5,7 +5,7 @@ MYSQL_USER='root'
 MYSQL_PASSWORD='qwe123QWE!'
 MYSQL_HOST='localhost'
 MYSQL_PORT='3306'
-BACKUP_DIRECTORY="/var/backup"
+BACKUP_DIRECTORY="/var/backup/$(date +%Y%m%d%H%M%S)"
 
 mkdir -pm 777 $BACKUP_DIRECTORY
 
