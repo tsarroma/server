@@ -23,7 +23,7 @@ otus_graduation_project
    yum update -y   
       
 6. Установить git и сконфигурировать:
-   yum install git
+   yum install -y git
    git config --global user.name "first_name last_name"
    git config --global user.email email@domain
    git config --global core.editor nano
