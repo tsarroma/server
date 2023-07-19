@@ -28,7 +28,6 @@ echo "SELECT @@server_id; CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_pas
 rf -f /var/lib/mysql/auto.cnf
 
 echo "server_id = 2" >> /etc/my.cnf
-echo "innodb_read_only = 1" >> /etc/my.cnf
 
 systemctl restart mysqld
 
@@ -36,12 +35,7 @@ echo "SELECT User, Host FROM mysql.user\G; SHOW MASTER STATUS\G; SHOW GLOBAL VAR
 
 echo "STOP SLAVE; CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='repl', MASTER_PASSWORD='$MASTER_PASSWORD', MASTER_LOG_FILE='binlog.000005', MASTER_LOG_POS=688, GET_MASTER_PUBLIC_KEY = 1; START SLAVE; show slave status\G" |  mysql -uroot -p$PASSWORD
 
-#Reboot
-read -p "Reboot now (y/n)"
+echo "innodb_read_only = 1" >> /etc/my.cnf
 
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    reboot
-else
-	exit 1
-fi
+systemctl restart mysqld
+
