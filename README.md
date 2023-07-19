@@ -28,6 +28,8 @@ otus_graduation_project
    git config --global user.email email@domain
    git config --global core.editor nano
 
+#### Запуск скриптов для автоматической настройки и восстановления сервисов
+
 7. Перейти во временную директорию
    cd /tmp
    
@@ -36,9 +38,6 @@ otus_graduation_project
 
 9. Поменять права и сделать исполняемыми скрипты
     chmod -R 777 /tmp/server
-
-#### Запуск скриптов для автоматической настройки и восстановления сервисов
-
 
 13. Запуск скрипта преднастройки сети,
 
