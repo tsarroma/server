@@ -42,12 +42,13 @@ otus_graduation_project
     chmod -R 777 /tmp/server
 
 11. Запуск скрипта с преднастройки сети, именем сервера:
-    ./server/pre_master.sh
+    /tmp/server/pre_master.sh
 
 12. Подключиться по старому ip сервера:
     ssh root@10.77.236.112
-12. Запуск скрипта установки mysql
-
+    
+13. Запуск скрипта установки mysql
+    /tmp/server/install_mysql.sh
 
 
 15. Запуск скрипта установки системы мониторинга
