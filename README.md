@@ -36,7 +36,7 @@ otus_graduation_project
    cd /tmp
    
 9. Склонировать Git репозиторий с конфигами сервера
-   yes | git clone git@github.com:tsarroma/server.git
+   git clone git@github.com:tsarroma/server.git
 
 10. Поменять права и сделать исполняемыми скрипты
     chmod -R 777 /tmp/server
