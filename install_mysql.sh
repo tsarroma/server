@@ -19,7 +19,7 @@ pass=$(grep "A temporary password" /var/log/mysqld.log | awk '{print $NF}')
 
 echo $pass
 
-mysql -uroot -p"$pass" -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '$PASSWORD';"
+echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY 'Testpass12$';" | mysql -uroot -pSpass
 
 #Reboot
 read -p "Reboot now (y/n)"
