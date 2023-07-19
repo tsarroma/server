@@ -3,7 +3,7 @@ otus_graduation_project
 
 Для восстановления мастер сервера. 
 
-#### На проектных лабах уже преднастроено.
+#### На проектных лабах уже преднастроено по 8 пункт включительно.
 
 1. Запустить и поставить в автозагрузку sshd
    systemctl enable --now sshd
@@ -21,8 +21,11 @@ otus_graduation_project
    
 5. Изменить права на закрытый ключ:
    chmod 400 ~/.ssh/id_ed25519
+
+6. Обновление пакетов
+   yum update -y   
       
-6. Установить git и сконфигурировать:
+8. Установить git и сконфигурировать:
    yum install git
    git config --global user.name "first_name last_name"
    git config --global user.email email@domain
