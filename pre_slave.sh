@@ -9,6 +9,8 @@ HOSTNAME=mysql-slave
 hostnamectl set-hostname $HOSTNAME
 systemctl restart systemd-hostnamed
 
+yum install -y sshpass
+
 #Set network and backup last
 
 UUID=`cat /etc/sysconfig/network-scripts/ifcfg-e* | awk -F "=" '/UUID/ {print $2}'`
