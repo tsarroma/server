@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #install utilities
-yum -y install mc nano epel-release wget yum-utils
+yum install -y mc nano epel-release wget yum-utils
 
 #install apache nginx
-yum -y install nginx httpd
+yum install -y nginx httpd
 
 #start and startup service nginx apache
 systemctl enable --now nginx
@@ -13,7 +13,7 @@ systemctl enable --now httpd
 #Php install
 rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php74
-yum -y install php php-mysqli php-xml
+yum install -y php php-mysqli php-xml
 
 #wordpress install
 cd /tmp
@@ -54,4 +54,10 @@ ss -tlpn
 nginx -s reload
 httpd -t
 
-
+#Install monitoring
+cd /tmp
+wget -I *.tar.gz
+yum install -y prometheus*.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
+tar xzvf *.tar.gz 
+yum install -y https://dl.grafana.com/oss/release/grafana-10.0.2-1.x86_64.rpm
