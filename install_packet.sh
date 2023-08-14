@@ -19,24 +19,16 @@ yum install -y php php-mysqli php-xml
 cd /tmp
 wget http://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
-mkdir -p /var/www/html1
-mkdir -p /var/www/html2
-mkdir -p /var/www/html3
-rsync -avP ./wordpress/ /var/www/html1/
-rsync -avP ./wordpress/ /var/www/html2/
-rsync -avP ./wordpress/ /var/www/html3/
-mkdir -p /var/www/html1/wp-content/uploads
-mkdir -p /var/www/html2/wp-content/uploads
-mkdir -p /var/www/html3/wp-content/uploads
-sudo chown -R apache:apache /var/www/html1/*
-sudo chown -R apache:apache /var/www/html2/*
-sudo chown -R apache:apache /var/www/html3/*
-cd /tmp/server/www/html1
-cp -rf ./wp-config.php /var/www/html1/wp-config.php
-cd /tmp/server/www/html2
-cp -rf ./wp-config.php /var/www/html2/wp-config.php
-cd /tmp/server/www/html3
-cp -rf ./wp-config.php /var/www/html3/wp-config.php
+
+#cycle for cloning instance
+for (( i = 1; i < 4; i++ )); do
+	mkdir -p /var/www/html$i
+  rsync -avP ./wordpress/ /var/www/html$i/
+	mkdir -p /var/www/html$i/wp-content/uploads
+  sudo chown -R apache:apache /var/www/html$i/*
+  cd /tmp/server/www/html$i
+  cp -rf ./wp-config.php /var/www/html$i/wp-config.php
+done
 
 #Copy configs nginx apache
 cd /tmp/server/
