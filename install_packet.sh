@@ -22,12 +22,13 @@ tar xzvf latest.tar.gz
 
 #cycle for cloning instance
 for (( i = 1; i < 4; i++ )); do
+	cd /tmp
 	mkdir -p /var/www/html$i
-  rsync -avP ./wordpress/ /var/www/html$i/
+ 	rsync -avP ./wordpress/ /var/www/html$i
 	mkdir -p /var/www/html$i/wp-content/uploads
-  sudo chown -R apache:apache /var/www/html$i/*
-  cd /tmp/server/www/html$i
-  cp -rf ./wp-config.php /var/www/html$i/wp-config.php
+	sudo chown -R apache:apache /var/www/html$i/*
+	cd /tmp/server/www/html$i
+	cp -rf ./wp-config.php /var/www/html$i/wp-config.php
 done
 
 #Copy configs nginx apache
