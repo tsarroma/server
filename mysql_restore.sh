@@ -17,10 +17,16 @@ echo "CREATE DATABASE wordpress;" |  mysql $MYSQL 2>/dev/null
 #Create user
 echo "CREATE USER wpuser@localhost IDENTIFIED BY '$MYSQL_PASSWORD'; GRANT ALL PRIVILEGES ON wordpress.* TO wpuser@localhost; FLUSH PRIVILEGES;" |  mysql $MYSQL
 
-echo $TABLES
+mkdir /var/backup
+
+sshpass -p "qwe123QWE" scp -P 2222 -r root@10.77.197.2:/var/backup/wordpress /var/backup
 
 TABLES=$(ls /var/backup/wordpress/)
+
+echo $TABLES
 
 for TABLE in $TABLES; do
 		gunzip < /var/backup/wordpress/$TABLE | mysql $MYSQL wordpress 2>/dev/null
 done
+
+echo "show databases;" |  mysql $MYSQL 2>/dev/null

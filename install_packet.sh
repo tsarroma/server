@@ -45,7 +45,12 @@ cp -rf ./nginx/* /etc/nginx
 
 #Restart web services
 systemctl restart httpd
+echo "httpd"
+systemctl is-active httpd
+
 systemctl restart nginx
+echo "nginx"
+systemctl is-active nginx
 
 #Avaible ports
 ss -tlpn
@@ -54,10 +59,3 @@ ss -tlpn
 nginx -s reload
 httpd -t
 
-#Install monitoring
-cd /tmp
-wget -I *.tar.gz
-yum install -y prometheus*.tar.gz
-wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
-tar xzvf *.tar.gz 
-yum install -y https://dl.grafana.com/oss/release/grafana-10.0.2-1.x86_64.rpm
