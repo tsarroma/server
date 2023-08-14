@@ -3,10 +3,6 @@
 #install java
 yum -y install java-openjdk-devel java-openjdk
 
-#tuning java
-echo "-Xms1g
--Xmx1g" > /etc/elasticsearch/jvm.options.d/jvm.options
-
 #ELK install
 cd /tmp
 
@@ -29,6 +25,10 @@ rsync -arvuP /tmp/server/etc/logstash/conf.d/logstash-nginx-es.conf /etc/logstas
 rsync -arvuP /tmp/server/etc/filebeat/filebeat.yml /etc/filebeat/
 
 chmod go-w /etc/filebeat/filebeat.yml
+
+#tuning java
+echo "-Xms1g
+-Xmx1g" > /etc/elasticsearch/jvm.options.d/jvm.options
 
 systemctl enable --now elasticsearch.service
 systemctl enable --now kibana
